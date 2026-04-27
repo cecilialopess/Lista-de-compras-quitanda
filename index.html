@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Compras</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button id="btn-voltar"><i class="ph ph-caret-left"></i> Voltar</button>
+            <h1>Lista de Compras</h1>
+        </header>
+
+        <main>
+            <form id="form-adicionar" class="input-group">
+                <input type="text" id="input-item" placeholder="O que você precisa comprar?">
+                <button type="submit" id="btn-adicionar">Adicionar item</button>
+            </form>
+
+            <ul id="lista-compras">
+                <li class="item">
+                    <div class="item-info">
+                        <input type="checkbox" class="checkbox-concluido">
+                        <span class="texto-item">Maçã</span>
+                    </div>
+                    <button class="btn-remover"><i class="ph ph-trash"></i></button>
+                </li>
+                
+                <li class="item">
+                    <div class="item-info">
+                        <input type="checkbox" class="checkbox-concluido">
+                        <span class="texto-item">Pão Integral</span>
+                    </div>
+                    <button class="btn-remover"><i class="ph ph-trash"></i></button>
+                </li>
+            </ul>
+        </main>
+    </div>
+
+    <div id="alerta-remocao" class="alerta oculto">
+        <i class="ph ph-warning-circle"></i> Item removido da lista.
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

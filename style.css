@@ -1,0 +1,220 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+:root {
+    --primary-red: #ef4444;      
+    --accent-yellow: #fbbf24;     
+    --bg-yellow: #fefce8;  
+    --text-color: #1e293b;
+    --white: #ffffff;
+}
+
+body {
+    background: linear-gradient(135deg, #ffd56a 0%, #ffa86a 50%, #ff7575 100%);
+    
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 450px;
+    padding: 32px;
+    border-radius: 16px;
+    position: relative;
+    
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -5%;
+    width: 110%;
+    height: 60px; 
+
+    background-image: 
+        /* Camada 1: */
+        repeating-linear-gradient(
+            90deg,
+            #ef4444, #ef4444 40px,
+            #fbbf24 40px, #fbbf24 80px
+        ),
+        /* Camada 2:*/
+        radial-gradient(circle at 20px 0, #ef4444 20px, transparent 21px),
+        /* Camada 3:*/
+        radial-gradient(circle at 60px 0, #fbbf24 20px, transparent 21px);
+        
+    background-size: 
+        100% 40px, 
+        80px 20px, 
+        80px 20px;
+        
+    background-position: 
+        top left,   
+        bottom left, 
+        bottom left;
+        
+    background-repeat: 
+        no-repeat,  
+        repeat-x,    
+        repeat-x;
+        
+    border-radius: 12px 12px 0 0; 
+
+    filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.15));
+    z-index: 10;
+}
+
+/* Header e Botão Voltar */
+header {
+    margin-bottom: 24px;
+    margin-top: 15px; 
+}
+
+#btn-voltar {
+    background: none;
+    border: none;
+    color: var(--primary-red); 
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 16px;
+    transition: transform 0.2s;
+}
+
+#btn-voltar:hover {
+    transform: translateX(-4px);
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Formulário de Adição */
+.input-group {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 32px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 12px 16px;
+    border: 2px solid rgba(0,0,0,0.1); 
+    border-radius: 8px;
+    outline: none;
+    background: rgba(255,255,255,0.7); 
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus {
+    border-color: var(--accent-yellow); 
+}
+
+#btn-adicionar {
+    background-color: var(--primary-red); 
+    color: white;
+    border: none;
+    padding: 0 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: filter 0.2s;
+}
+
+#btn-adicionar:hover {
+    filter: brightness(1.2);
+}
+
+/* Lista de Itens */
+ul {
+    list-style: none;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    background-color: rgba(255,255,255,0.6); /* Item semi-transparente */
+    border-radius: 8px;
+    margin-bottom: 12px;
+    transition: background 0.2s;
+}
+
+.item:hover {
+    background-color: var(--accent-yellow); /* Feedback visual em amarelo */
+}
+
+.item-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Checkbox Moderno */
+.checkbox-concluido {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--primary-red); /* Cor do check em vermelho */
+    cursor: pointer;
+}
+
+/* Quando o item estiver marcado (via JS) */
+.item-concluido .texto-item {
+    text-decoration: line-through;
+    color: #94a3b8;
+}
+
+.btn-remover {
+    background: none;
+    border: none;
+    color: #ef4444; /* Mantive o vermelho de alerta */
+    cursor: pointer;
+    padding: 4px;
+    font-size: 1.2rem;
+    transition: color 0.2s;
+}
+
+.btn-remover:hover {
+    color: #b91c1c;
+}
+
+/* Alerta de Remoção */
+.alerta {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--text-color);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.oculto {
+    display: none;
+}
